@@ -1,0 +1,586 @@
+/* General Styles */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    box-sizing: border-box;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  header {
+    background: linear-gradient(
+      to right,
+      #4d1a1a,
+      #100741
+    ); /* Dark blue to light blue */
+    font-weight: bold;
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  
+  header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 1rem;
+  }
+  
+  header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+  }
+  
+  /* Hide the nav links on smaller screens */
+  header nav {
+    flex-direction: column;
+    position: absolute;
+    top: 60px; 
+    right: 0;
+    width: 200px;
+    border-radius: 8px;
+    z-index: 1000;
+  }
+  
+  header nav.active {
+    display: flex; /* Show the nav links when active */
+  }
+  /* Burger Icon */
+  .burger {
+    display: none; 
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    position: relative;
+  }
+  
+  .burger div {
+    width: 100%;
+    height: 4px;
+    background: #fff;
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+  
+  /* Change burger icon to "X" when active */
+  .burger.active div:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  
+  .burger.active div:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .burger.active div:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+  
+  /* home page image*/
+  .final-section {
+    padding: 20px;
+    background-color: transparent; 
+    text-align: center;
+  }
+  
+  .image-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 15px; /* Space between images */
+  }
+  
+  .image-card {
+    text-align: center;
+    width: 30%; /* Adjust width for desktop */
+  }
+  
+  .image-card img {
+    width: 100%;
+    max-width: 300px; 
+    height: auto;
+    border-radius: 10px; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  }
+  
+  .image-card p {
+    margin-top: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #3374ec;
+  }
+  
+  
+  /* Main Content */
+  main {
+    padding: 2rem;
+    background: #f4f4f4;
+    background-image: url(https://res.cloudinary.com/dvogj6wt8/image/upload/v1735949059/bg_pic5lp.jpg);
+    min-height: 80vh;
+  }
+  
+  /*video*/
+  .video-container {
+    justify-content: center; 
+    align-items: center; 
+    margin: auto; 
+    padding: 0; 
+    width: fit-content; 
+    height: fit-content;
+  }
+  
+  .video-container video {
+    display: block; /* Ensures the video is treated as a block-level element */
+    border-radius: 8px; 
+  }
+  
+  /* Gallery Section */
+  .car-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content: center;
+    align-content: center;
+    gap: 1rem;
+    margin-top: 50px;
+  }
+  
+  .car-card {
+    color: #f4f4f4;
+    background: #161212;
+    border: 1px solid #543030;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+  
+  .car-card img {
+    width: 400px !important; /* Set a flexible width */
+    height: 200px !important; /* Set a fixed height */
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .car-card button {
+    padding: 0.5rem;
+    background: #605755;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .car-card button:hover {
+    background-color: #333;
+  }
+  
+  .car-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    z-index: 1;
+  }
+  
+  /* General Modal Styles */
+  #car-details-modal {
+    position: fixed;
+    z-index: 999; 
+    top: 60px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); 
+    overflow-y: auto; /* Enable scrolling if content overflows */
+  }
+  
+  /* Modal Content Container */
+  .modal-content {
+    background-color:#161212; 
+    color: white; 
+    margin: 5% auto; 
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 600px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    position: relative;
+    box-sizing: border-box;
+    text-align: center; 
+  }
+  
+  /* Close Button */
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    background: none;
+    border: none;
+  }
+  
+  /* Close Button Hover Effect */
+  .close-btn:hover {
+    color: #e94949;
+  }
+  
+  /* Image Styling */
+  .modal-content img {
+    width: 100%;
+    max-width: 300px; 
+    object-fit: cover;
+    height: auto;
+    margin: 15px 0;
+    border-radius: 5px;
+  }
+  
+  /* Text Styling */
+  #car-name {
+    font-size: 1.8em;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #ffffff;
+  }
+  
+  #car-description,
+  h3 {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    color:white;
+  }
+  
+  #car-engine,
+  #car-location {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    color: white;
+  }
+  
+  /* Strong Text for Labels */
+  p strong {
+    font-weight: bold;
+    color: #ffffff;
+  }
+  
+  /* Modal (Contact Overlay) */
+  #booking {
+    padding: 5px;
+    max-width: 300px;
+    margin: 10px auto;
+    background-color:transparent;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: none;
+  }
+  
+  #booking:not(.hidden) {
+    display: block;
+  }
+  
+  #booking h2 {
+    font-size: 2rem;
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  #booking form label {
+    display: block;
+    font-size: 1rem;
+    color: #ffffff;
+    margin: 5px 0 5px;
+  }
+  
+  #booking form input,
+  #booking form select {
+    color: white;
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    background-color: transparent;
+  }
+  #booking form input:focus,
+  #booking form select:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+  
+  #booking form button[type="submit"] {
+    background-color: #0e3614;
+    color: white;
+    font-size: 1rem;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+  }
+  
+  #booking form button[type="submit"]:hover {
+    background-color: #305d27;
+  }
+  
+  #back-to-home {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #521c0a;
+    color: white;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Modal background overlay */
+  #contact-overlay {
+    align-items: center;
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+  }
+  
+  .contact-modal-container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  .contact-modal {
+    background:#161212;
+    color: #ffffff;
+    padding: 20px;
+    width: 420px;
+    margin-left: 35%;
+    border-radius: 8px;
+  }
+  
+  .contact-modal h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  
+  .contact-modal p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+  }
+  
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    background-color: transparent;
+    color: white;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+  
+  .contact-form button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  .contact-form button[type="submit"] {
+    background-color: #0e3614;
+    color: white;
+  }
+  
+  .contact-form button[type="submit"]:hover {
+    background-color: #305d27;
+  }
+  
+  .contact-form button#close-contact {
+    background-color: #ccc;
+    color: black;
+  }
+  
+  .contact-form button#close-contact:hover {
+    background-color: #999;
+  }
+  
+  /* Modal background overlay */
+  #result-overlay {
+    align-items: center;
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+  }
+  
+  .result-modal-container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  .result-modal {
+    color: white;
+    background: #28a745;
+    padding: 20px;
+    width: 420px;
+    margin-left: 35%;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+  }
+  .result-modal h2 {
+    text-align: center;
+  }
+  
+  .home-grid-img {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 8px;
+  }
+  .home-grid-img img {
+    object-fit: contain;
+  }
+  
+  .home-grid-img:nth-child(2) {
+    background-color: red;
+    grid-column: 0 / 2;
+  }
+  .home-grid-img:nth-child(3) {
+    background-color: red;
+    grid-column: 0 / 2;
+  }
+  
+  /* Footer */
+  footer {
+    background: linear-gradient(to right, #100741, #4d1a1a);
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  .intro {
+    color: #3a919d;
+    padding: 10px;
+    text-align: center;
+    font-size: 1em;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Tablet Responsiveness */
+  @media (max-width: 1024px) {
+    .car-card{
+      width: 45%;
+    }
+    .video-container {
+      height: 30vh;
+    }
+    .video-container video {
+      width: 100%;
+    }
+    #car-details-modal {
+      top: 80px;
+    }
+  }
+  
+  /* Mobile Responsiveness */
+  @media (max-width: 768px) {
+    #car-details-modal {
+      top: 70%;
+    }
+  
+    .burger {
+      display: flex;
+    }
+  
+    header nav {
+      display: none; /* Start hidden */
+    }
+  
+    .image-card {
+      width: 45%; 
+    }
+    .car-card {
+      width: 100%;
+    }
+    .video-container video {
+     width: 100%;
+    }
+    header nav ul {
+      flex-direction: column;
+    }
+  
+    header nav {
+      background-color: #100741;
+      color: black;
+      top: 10px;
+      width: 30%;
+      right: 0;
+      padding: 20px;
+      min-height: 40vh;
+    }
+  
+    .burger {
+      display: flex;
+    }
+  
+    .burger.active + header nav {
+      display: flex;
+    }
+  
+    .car-container {
+      grid-template-columns: 260px;
+    }
+  }
+  
+  .more-details-btn {
+    margin-right: 8px;
+  }
+  
+  @media (max-width: 480px) {
+    .image-card {
+      width: 100%; /* Full width for small screens */
+    }
+  }

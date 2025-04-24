@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sports Car Showcase</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="header-container">
+        <h1>Sports Car Gallery</h1>
+        <div class="burger">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#contact-overlay">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main class="main-container">
+      <section id="home">
+        <div class="intro">
+          <h2>Discover our beautyfull car gallery</h2>
+        </div>
+        <div id="video" class="video-container">
+          <video width="600" autoplay muted loop>
+            <source src="https://res.cloudinary.com/dvogj6wt8/video/upload/v1735953539/Carvideo_oe8r3f.mp4" type="video/mp4" />
+          </video>
+        </div>
+        <div class="outro">
+          <p>
+            Thank you for exploring our exclusive collection of sports cars!
+            Your passion for excellence deserves a closer look, and we invite
+            you to visit our garage to experience these masterpieces in person.
+          </p>
+          <p>
+            From the roar of the engines to the fine craftsmanship, there’s
+            nothing like seeing these cars up close. Schedule an appointment
+            today and let us help you turn your dreams into reality.
+          </p>
+          <p>
+            Our team is ready to guide you through an unforgettable journey into
+            the world of high-performance automobiles. Don’t just admire—immerse
+            yourself in the excitement!
+          </p>
+        </div>
+        <div class="final-section">
+          <div class="image-container">
+            <div class="image-card">
+              <img src="https://res.cloudinary.com/dvogj6wt8/image/upload/v1735949059/srt3_eatxck.jpg"
+        alt="American Cars">
+              <p>American Power</p>
+            </div>
+            <div class="image-card">
+              <img src="https://res.cloudinary.com/dvogj6wt8/image/upload/v1735949077/911_1_cd0ugm.jpg" alt="European Cars">
+              <p>European Beauty</p>
+            </div>
+            <div class="image-card">
+              <img src="https://res.cloudinary.com/dvogj6wt8/image/upload/v1735949087/supra5_y4ldou.jpg" alt="Japanese Cars">
+              <p>Japan's Beast</p>
+            </div>
+          </div>
+        </div>
+        
+      </section>
+
+      <!-- Car Details Modal (Initially hidden) -->
+      <div id="car-details-modal" class="hidden">
+        <div class="modal-content">
+          <span class="close-btn">&times;</span>
+          <h2 id="car-name"></h2>
+          <img id="car-image" src="" alt="Car Image" />
+          <p id="car-description"></p>
+          <p><strong>Engine:</strong> <span id="car-engine"></span></p>
+          <p><strong>Location:</strong> <span id="car-location"></span></p>
+        </div>
+      </div>
+
+      <section id="gallery" class="hidden">
+        <h2>Featured Sports Cars</h2>
+        <div class="car-container">
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact-overlay" class="hidden">
+        <div class="contact-modal-container">
+          <div class="contact-modal">
+            <h2>Contact Us</h2>
+            <p>We’d love to hear from you! Please fill out the form below.</p>
+
+            <form class="contact-form">
+              <label for="name">Your Name</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Enter your name"
+                required
+              />
+
+              <label for="email">Your Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Enter your email"
+                required
+              />
+
+              <label for="message">Your Message</label>
+              <textarea
+                id="message"
+                name="message"
+                placeholder="Write your message"
+                rows="5"
+                required
+              ></textarea>
+
+              <button type="submit">Send Message</button>
+              <button type="button" id="close-contact">Close</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- Booking Page Section -->
+      <section id="booking" class="hidden">
+        <h2>Book a Visit</h2>
+        <form id="booking-form">
+          <label for="visitor-name">Your Name:</label>
+          <input type="text" id="visitor-name" name="visitor-name" required />
+
+          <label for="visitor-email">Your Email:</label>
+          <input
+            type="email"
+            id="visitor-email"
+            name="visitor-email"
+            required
+          />
+
+          <label for="car-visit">Car You're Interested In:</label>
+          <select id="car-visit" name="car-visit" required>
+            <option value="Doudge SRT">Doudge SRT</option>
+            <option value="Chevrolet_Camaro">Chevrolet Camaro</option>
+            <option value="Nissan_Gtr">Nissan GTR</option>
+            <option value="Porche_911">Porche 911</option>
+            <option value="Mustang_GT">Mustang GT</option>
+            <option value="Toyota_Supra">Toyota Supra</option>
+            <!-- Car options will be dynamically filled here -->
+          </select>
+          <label for="datetime">Choose available time:</label>
+          <input type="datetime-local" id="start-date" />
+          <button type="submit" id="book-submit-btn">Submit Booking</button>
+        </form>
+        <button id="back-to-home" id="datetime" name="datetime" required>
+          Back to Home
+        </button>
+      </section>
+
+      <!-- Result modal  -->
+      <section id="result-overlay" class="hidden">
+        <div class="result-modal-container">
+          <div class="result-modal">
+            <h2>Congratulation! Successfully Booked.</h2>
+          </div>
+        </div>
+        <button id="back-to-home" id="datetime" name="datetime" required>
+          Back to Home
+        </button>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2024 Sports Car Showcase. All rights reserved.</p>
+    </footer>
+    <script src="./index.js"></script>
+  </body>
+</html>
